@@ -10,17 +10,6 @@ public class Main{
         list.addLast(30);
         list.addLast(40);
         list.addLast(50);
-        /* list.addFirst(5);
-        list.addAt(2, 80);
-        System.out.println(list.IndexOf(30));
-        System.out.println(list.contains(10));
-        list.removeFirst();
-        list.removeLast();
-        list.removeAt(0);
-        list.Print();
-        System.out.println();
-        System.out.println(list.Size()); */
-        list.reverse();
-        System.out.println(Arrays.toString(list.toArray()));
+        System.out.println(list.getKthElement(-1));
     }
 }

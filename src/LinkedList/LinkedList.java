@@ -282,7 +282,7 @@ public class LinkedList {
          * finaly return the array
          */
         if (isEmpty()) {
-            throw new NullPointerException();
+            throw new IllegalStateException();
         }
 
         var current = first;
@@ -301,21 +301,51 @@ public class LinkedList {
 
     public void reverse() {
         if (isEmpty()) {
-            throw new NullPointerException();
+            throw new IllegalStateException();
         }
 
-        var prev = first;
-        var current = first.next;
-        Node temp;
+        Node prev = null;
+        Node current = first;
+        Node next = null;
 
         while (current != null) {
-            temp = current.next;
+            next = current.next;
             current.next = prev;
             prev = current;
-            current = temp;
-
-            current = current.next;
-            prev = prev.next;
+            current = next;
         }
+
+        first = prev;
+    }
+
+    public int getKthElement(int k){
+        /* 
+         * finding kth node from end of the linked list
+         * create two pointer start & end
+         * then loop the end pointer to k - 1 times the we get some distance this distance is must
+         * then we ge new end position of end node
+         * then, run the another loop this oop run end node next not equal to null
+         * then, inside the loop change both nodes position
+         * one the loop is break we got the value at start node value
+         */
+        if(isEmpty() || k < 0){
+            throw new IllegalStateException();
+        }
+        var start = first;
+        var end = first;
+
+        for(int i=0; i<k-1; i++){
+            end = end.next;
+
+            if(end == last){
+                throw new IllegalArgumentException();
+            }
+        }
+
+        while(end.next != null){
+            start = start.next;
+            end = end.next;
+        }
+        return start.value;
     }
 }
