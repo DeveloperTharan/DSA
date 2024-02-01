@@ -1,32 +1,47 @@
 package Queue;
 
-public class Queue<T> {
-    static final int MaxSize = 30;
-    T arr[] = (T[]) new Object[MaxSize];
+public class Queue {
+    static final int MaxSize = 3;
+    int[] arra = new int[MaxSize];
     int front;
+    int rear;
 
-    Queue() {
+    public Queue() {
         front = -1;
+        rear = -1;
     }
 
-    public void enqueue(T val) {
-        if (front == MaxSize - 1) {
-            throw new IndexOutOfBoundsException("Queue is full");
-        } else {
-            arr[++front] = val;
-        }
+    public boolean isEmpty() {
+        return front == -1;
     }
 
-    public T dequeue() {
-        if (front == -1) {
-            throw new IndexOutOfBoundsException("Queue is full");
-        } else {
-            T temp = (T) arr[0];
-            for (int i = 1; i <= front; i++) {
-                arr[i - 1] = arr[i];
-            }
-            front--;
-            return temp;
+    public boolean isFull() {
+        if(rear == MaxSize - 1){
+            return true;
         }
+        return false;
+    }
+
+    public void enqueue(int value) {
+        if (isEmpty()) {
+            arra[++front] = value;
+            rear++;
+            return;
+        }
+        arra[++rear] = value;
+    }
+
+    public int dequeue() {
+        if (isEmpty()) {
+            throw new IllegalArgumentException();
+        }
+        return arra[front++];
+    }
+
+    public int Peek() {
+        if(isEmpty()){
+            throw new IllegalArgumentException();
+        }
+        return arra[front];
     }
 }

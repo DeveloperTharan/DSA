@@ -1,15 +1,15 @@
 package stack;
 
-public class Stack<T> {
+public class Stack {
     static final int MaxSize = 30;
-    T[] arr = (T[]) new Object[MaxSize];
+    int[] arr = new int[MaxSize];
     int top;
 
     Stack() {
         top = -1;
     }
 
-    public void push(T val) {
+    public void push(int val) {
         if (top == MaxSize - 1) {
             throw new IndexOutOfBoundsException("Stack is full");
         } else {
@@ -17,14 +17,14 @@ public class Stack<T> {
         }
     }
 
-    public T pop() {
+    public int pop() {
         if (top == -1) {
             throw new IndexOutOfBoundsException("Stack is Empty");
         }
         return arr[top--];
     }
 
-    public T peek() {
+    public int peek() {
         return arr[top];
     }
 
