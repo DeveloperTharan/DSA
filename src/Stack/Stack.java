@@ -1,4 +1,4 @@
-package stack;
+package Stack;
 
 public class Stack {
     static final int MaxSize = 30;
