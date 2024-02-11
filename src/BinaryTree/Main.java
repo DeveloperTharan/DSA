@@ -1,8 +1,8 @@
-package BineryTree;
+package BinaryTree;
 
 public class Main {
     public static void main(String[] args) {
-        var tree = new Binerytree();
+        var tree = new Binarytree();
         
         tree.Insert(7);
         tree.Insert(9);
@@ -11,5 +11,6 @@ public class Main {
         tree.Insert(10);
         tree.Insert(1);
         tree.Insert(5);
+        System.out.println(tree.find(1));
     }
 }

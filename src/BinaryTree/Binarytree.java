@@ -1,6 +1,6 @@
-package BineryTree;
+package BinaryTree;
 
-public class Binerytree {
+public class Binarytree {
     private class Node {
         private int value;
         private Node left;
@@ -18,13 +18,13 @@ public class Binerytree {
 
         if (root == null) {
             root = node;
-            return;
+            return; 
         }
 
         var current = root;
 
         while (true) {
-            if (current.value > item) {
+            if (item < current.value) {
                 if (current.left == null) {
                     current.left = node;
                     break;
@@ -38,5 +38,22 @@ public class Binerytree {
                 current = current.right;
             }
         }
+    }
+
+    public boolean find(int item){
+        if(root != null){
+            var current = root;
+
+            while(current != null){
+                if(item < current.value){
+                    current = current.left;
+                } else if(item > current.value){
+                    current = current.right;
+                } else {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
