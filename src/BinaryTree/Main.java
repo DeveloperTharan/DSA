@@ -11,6 +11,13 @@ public class Main {
         tree.Insert(10);
         tree.Insert(1);
         tree.Insert(5);
-        System.out.println(tree.find(1));
+        /* System.out.println(tree.find(1)); */
+        /* tree.PreOrderTraversal();
+        System.out.println(" ");
+        tree.InOrderTraversal();
+        System.out.println(" ");
+        tree.PostOrderTraversal(); */
+        /* System.out.println(tree.MinValueOfTree()); */
+        System.out.println(tree.isBinarySearchTree());
     }
 }
