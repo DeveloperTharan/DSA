@@ -8,6 +8,13 @@
             "type": "java",
             "name": "Main",
             "request": "launch",
+            "mainClass": "String_Manipulation.Main",
+            "projectName": "DSA_dc440549"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
             "mainClass": "AVLTree.Main",
             "projectName": "DSA_dc440549"
         },
