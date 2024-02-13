@@ -57,6 +57,7 @@ public class HashTable {
         }
     }
 
+    @SuppressWarnings("unchecked")
     private LinkedList<Entries>[] entries = new LinkedList[5];
 
     private int hash(int key) {
