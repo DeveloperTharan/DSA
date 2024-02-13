@@ -8,7 +8,7 @@
             "type": "java",
             "name": "Main",
             "request": "launch",
-            "mainClass": "String_Manipulation.Main",
+            "mainClass": "StringManipulation.Main",
             "projectName": "DSA_dc440549"
         },
         {
