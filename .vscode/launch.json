@@ -8,6 +8,20 @@
             "type": "java",
             "name": "Main",
             "request": "launch",
+            "mainClass": "Algorithms.sorting.Main",
+            "projectName": "DSA_56206f86"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Stack.Main",
+            "projectName": "DSA_56206f86"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
             "mainClass": "StringManipulation.Main",
             "projectName": "DSA_dc440549"
         },
