@@ -1,10 +1,19 @@
 package Algorithms.sorting;
 
 public class Sorting {
+    public static void Print(int[] arr, String sortType) {
+        System.out.print(sortType + ": ");
+        System.out.print("[");
+        for (var nums : arr) {
+            System.out.print(nums + " ");
+        }
+        System.out.print("]");
+        System.out.println();
+    }
+
     /* Bubble sort */
     public static int[] BubleSort(int[] arr) {
         int size = arr.length;
-        int temp;
 
         if (arr == null || size <= 1) {
             return arr;
@@ -13,9 +22,7 @@ public class Sorting {
         for (int i = 0; i < size - 1; i++) {
             for (int j = 0; j < size - i - 1; j++) {
                 if (arr[j] > arr[j + 1]) {
-                    temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
+                    swap(arr, j, i);
                 }
             }
         }
@@ -25,7 +32,6 @@ public class Sorting {
     /* Selection sort */
     public static int[] SelectionSort(int[] arr) {
         int size = arr.length;
-        int temp;
         int minIndex = -1;
 
         if (arr == null || size <= 1) {
@@ -39,9 +45,7 @@ public class Sorting {
                     minIndex = j;
                 }
             }
-            temp = arr[minIndex];
-            arr[minIndex] = arr[i];
-            arr[i] = temp;
+            swap(arr, minIndex, i);
         }
         return arr;
     }
@@ -70,8 +74,8 @@ public class Sorting {
     /* MergeSort */
     public static int[] MergeSort(int[] arr) {
         int size = arr.length;
-        
-        if (arr == null || size <= 1){
+
+        if (arr == null || size <= 1) {
             return arr;
         }
 
@@ -122,4 +126,49 @@ public class Sorting {
     }
 
     /* QuickSort */
+    public static int[] QuickSort(int[] arr) {
+        int size = arr.length;
+
+        if (arr == null || size <= 1) {
+            return arr;
+        }
+
+        return QuickSort(arr, 0, size - 1);
+    }
+
+    private static int[] QuickSort(int[] arr, int low, int high) {
+        if (low >= high) {
+            return arr;
+        }
+
+        int pivot = arr[high];
+        int left = low;
+        int right = high - 1;
+
+        while (left <= right) {
+            if (arr[left] > pivot && arr[right] < pivot) {
+                swap(arr, left, right);
+            }
+            if (arr[left] <= pivot) {
+                left++;
+            }
+            if (arr[right] >= pivot) {
+                right--;
+            }
+        }
+
+        swap(arr, left, high);
+
+        QuickSort(arr, low, left - 1);
+        QuickSort(arr, left + 1, high);
+
+        return arr;
+    }
+
+    /* swaping */
+    private static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
 }

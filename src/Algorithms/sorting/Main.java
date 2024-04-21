@@ -8,32 +8,12 @@ public class Main {
         var selectionsort = Sorting.SelectionSort(data);
         var insertionSort = Sorting.InsertionSort(data);
         var mergSort = Sorting.MergeSort(data);
+        var quickSort = Sorting.QuickSort(data);
 
-        System.out.print("BubbledSort: ");
-        for (var nums : bubledsort) {
-            System.out.print(nums + " ");
-        }
-
-        System.out.println();
-
-        System.out.print("SelectionSort: ");
-        for (var nums : selectionsort) {
-            System.out.print(nums + " ");
-        }
-
-        System.out.println();
-
-        System.out.print("InsertionSort: ");
-        for (var nums : insertionSort) {
-            System.out.print(nums + " ");
-        }
-
-        
-        System.out.println();
-
-        System.out.print("MergeSort: ");
-        for (var nums : mergSort) {
-            System.out.print(nums + " ");
-        }
+        Sorting.Print(bubledsort, "BubbledSort");
+        Sorting.Print(selectionsort, "selectionsort");
+        Sorting.Print(insertionSort, "insertionSort");
+        Sorting.Print(mergSort, "mergSort");
+        Sorting.Print(quickSort, "quickSort");
     }
 }
