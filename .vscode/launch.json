@@ -8,6 +8,13 @@
             "type": "java",
             "name": "Main",
             "request": "launch",
+            "mainClass": "AVLTree.Main",
+            "projectName": "DSA_56206f86"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
             "mainClass": "DynamicProgramming.Main",
             "projectName": "DSA_56206f86"
         },

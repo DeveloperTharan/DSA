@@ -40,25 +40,33 @@ public class AVL_Tree {
 
         root.height = Math.max(height(root.left), height(root.right)) + 1;
 
-        balanceFator(root);
+        balanceFactor(root);
 
         return root;
     }
 
-    // need refactor (not working) //
-    private void balanceFator(Node root) {
-        var res = (height(root.left) - height(root.right));
-
-        if (res > 1) {
-            if (height(root.left) - height(root.right) < 0) {
-                System.out.println("heavy" + " " + root.left.value);
+    private void balanceFactor(Node root) {
+        int balanceFactor = height(root.left) - height(root.right);
+    
+        if (balanceFactor > 1) {
+            if (height(root.left.left) >= height(root.left.right)) {
+                // Left-left case
+                System.out.println("Right rotate " + root.value);
+            } else {
+                // Left-right case
+                System.out.println("Left rotate " + root.left.value);
+                System.out.println("Right rotate " + root.value);
             }
-            System.out.println("right rotate" + " " + root.value);
-        } else if (res < -1) {
-            if (height(root.left) - height(root.right) > 0) {
-                System.out.println("right rotate" + " " + root.right.value);
+        } else if (balanceFactor < -1) {
+            if (height(root.right.right) >= height(root.right.left)) {
+                // Right-right case
+                System.out.println("Left rotate " + root.value);
+            } else {
+                // Right-left case
+                System.out.println("Right rotate " + root.right.value);
+                System.out.println("Left rotate " + root.value);
             }
-            System.out.println("left rotate" + "  " + root.value);
         }
     }
+    
 }
