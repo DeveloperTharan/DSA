@@ -155,8 +155,8 @@ public class StringUtils {
     }
 
     /* anagram */
-    public static boolean areAnagrams(String str1, String str2){
-        if(str1 == null || str2 == null || str1.length() != str2.length()){
+    public static boolean areAnagrams(String str1, String str2) {
+        if (str1 == null || str2 == null || str1.length() != str2.length()) {
             return false;
         }
 
@@ -166,14 +166,14 @@ public class StringUtils {
         String string1 = str1.toLowerCase();
         String string2 = str2.toLowerCase();
 
-        for(int i=0; i<string1.length(); i++){
+        for (int i = 0; i < string1.length(); i++) {
             int index = string1.charAt(i) - 'a';
             arr[index]++;
         }
 
-        for(int i=0; i<string2.length(); i++){
+        for (int i = 0; i < string2.length(); i++) {
             var index = string2.charAt(i) - 'a';
-            if(arr[index] == 0){
+            if (arr[index] == 0) {
                 return false;
             }
             arr[index]--;
@@ -183,8 +183,8 @@ public class StringUtils {
     }
 
     /* palindrome */
-    public static boolean isPalindrome(String str){
-        if(str == null || str == ""){
+    public static boolean isPalindrome(String str) {
+        if (str == null || str == "") {
             throw new IllegalArgumentException();
         }
 
@@ -193,7 +193,7 @@ public class StringUtils {
         int last = string[string.length - 1];
 
         while (first < last) {
-            if(first != last){
+            if (first != last) {
                 return false;
             }
             first++;
@@ -201,5 +201,28 @@ public class StringUtils {
         }
 
         return true;
+    }
+
+    /* reverse a number (number is palindrome) */
+    public static boolean isPalindrome(int nums) {
+        int res = reverseTheNumber(nums);
+
+        if(res == nums){
+            return true;
+        }
+
+        return false;
+    }
+
+    public static int reverseTheNumber(int nums) {
+        int reversed = 0;
+        
+        while (nums != 0) {
+            int digit = nums % 10;
+            reversed = reversed * 10 + digit;
+            nums /= 10;
+        }
+        
+        return reversed;
     }
 }
